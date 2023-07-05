@@ -11,6 +11,7 @@
 		alt="test"
 		on:load={async () => {
 			if (!browser) return;
+			console.log('BarcodeDetector', BarcodeDetector);
 			BarcodeDetector.getSupportedFormats().then((supportedFormats) => {
 				supportedFormats.forEach((format) => console.log(format));
 			});
