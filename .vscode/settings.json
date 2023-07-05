@@ -16,7 +16,8 @@
                 "hidden": [
                     "$Default",
                     ".svelte-kit/",
-                    "node_modules/"
+                    "node_modules/",
+                    ".github/"
                 ]
             }
         ]
@@ -29,7 +30,8 @@
         "**/.DS_Store": true,
         ".vscode/": true,
         ".svelte-kit/": true,
-        "node_modules/": true
+        "node_modules/": true,
+        ".github/": true
     },
     "hidefiles.selectedProfile": "Strict"
 }
