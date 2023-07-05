@@ -1,7 +1,7 @@
 {
     "short_name": "Scaner",
     "name": "Barcode Scaner",
-    "start_url": "/",
+    "start_url": "/barcode-scaner/",
     "icons": [
       {
         "src": "logo_512.png",
@@ -11,7 +11,7 @@
     ],
     "background_color": "#e4e6ee",
     "display": "standalone",
-    "scope": "/",
+    "scope": "/barcode-scaner/",
     "theme_color": "#e4e6ee",
     "description": "An app that can scan barcode"
 }
