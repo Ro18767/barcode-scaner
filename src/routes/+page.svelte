@@ -9,7 +9,7 @@
 
 	$: if (files) file = files[0];
 	$: console.log(file);
-	$: if (file && img) img.src = URL.createObjectURL(file);
+	$: if (file) imgUrl = URL.createObjectURL(file);
 	$: console.log(barcodeValues);
 
 	async function onFinishLoading(event: Event) {
@@ -17,7 +17,7 @@
 
 		if (!browser) return;
 
-		URL.revokeObjectURL(img.src);
+		URL.revokeObjectURL(imgUrl);
 
 		if (event.type !== 'load') return;
 
