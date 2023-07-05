@@ -54,7 +54,7 @@
 
 <div class="container mx-auto p-4 space-y-4">
 	{#if browser && 'BarcodeDetector' in window}
-		<FileButton name="" bind:files accept="image/*">Select Image</FileButton>
+		<FileButton name="" bind:files accept="image/*" button="btn variant-filled">Select Image</FileButton>
 	{:else}
 		<h2>BarcodeDetector not supported</h2>
 	{/if}
