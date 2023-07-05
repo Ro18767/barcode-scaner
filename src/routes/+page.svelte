@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { CodeBlock, clipboard } from '@skeletonlabs/skeleton';
+	import { clipboard } from '@skeletonlabs/skeleton';
 	import { FileButton } from '@skeletonlabs/skeleton';
-	import { readonly } from 'svelte/store';
 
 	let img: HTMLImageElement;
 	let files: FileList;
@@ -11,9 +10,9 @@
 	let imgUrl: string;
 
 	$: if (files) file = files[0];
-	$: console.log(file);
+	// $: console.log(file);
 	$: if (file) imgUrl = URL.createObjectURL(file);
-	$: console.log(barcodeValues);
+	// $: console.log(barcodeValues);
 
 	let copied = false;
 	let copiedIndex = 0;
