@@ -1,0 +1,35 @@
+{
+    "hidefiles.configurationType": "local",
+    "hidefiles.globalConfig": {
+        "profiles": [
+            {
+                "name": "Default",
+                "detail": "",
+                "description": "Test",
+                "hidden": [
+                    ".vscode/"
+                ]
+            },
+            {
+                "name": "Strict",
+                "detail": "Hide everything not immediately required",
+                "hidden": [
+                    "$Default",
+                    ".svelte-kit/",
+                    "node_modules/"
+                ]
+            }
+        ]
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        ".vscode/": true,
+        ".svelte-kit/": true,
+        "node_modules/": true
+    },
+    "hidefiles.selectedProfile": "Strict"
+}
