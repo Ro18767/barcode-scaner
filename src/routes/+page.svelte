@@ -8,7 +8,9 @@
 	let imgUrl: string;
 
 	$: if (files) file = files[0];
+	$: console.log(file);
 	$: if (file && img) img.src = URL.createObjectURL(file);
+	$: console.log(barcodeValues);
 
 	async function onFinishLoading(event: Event) {
 		barcodeValues = [];
@@ -54,7 +56,7 @@
 {/if}
 
 {#each barcodeValues as value}
-	<input type="text" {value} />
+	<input type="text" {value} readonly />
 {/each}
 
 <style>
