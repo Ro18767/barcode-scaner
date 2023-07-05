@@ -53,7 +53,6 @@
 </script>
 
 <div class="container mx-auto p-4 space-y-4">
-	<FileButton name="" bind:files accept="image/*" button="variant-filled">Select Image</FileButton>
 	{#if browser && 'BarcodeDetector' in window}
 		<FileButton name="" bind:files accept="image/*" button="btn variant-filled">Select Image</FileButton>
 	{:else}
