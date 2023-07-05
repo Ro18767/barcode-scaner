@@ -27,11 +27,7 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/CVS": true,
-        "**/.DS_Store": true,
-        ".vscode/": true,
-        ".svelte-kit/": true,
-        "node_modules/": true,
-        ".github/": true
+        "**/.DS_Store": true
     },
-    "hidefiles.selectedProfile": "Strict"
+    "hidefiles.selectedProfile": "Show All Files"
 }
