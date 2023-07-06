@@ -27,22 +27,37 @@
 
 	let showSpiner = false;
 
+	function onStartLoading() {
+		showSpiner = true;
+	}
+
 	async function onFinishLoading(event: Event) {
 		barcodeValues = [];
 
-		if (!browser) return;
+		if (!browser) {
+			showSpiner = false;
+			return;
+		}
 
 		URL.revokeObjectURL(imgUrl);
 
-		if (event.type !== 'load') return;
+		if (event.type !== 'load') {
+			showSpiner = false;
+			return;
+		}
 
-		if (!('BarcodeDetector' in window)) return;
-		if (typeof window.BarcodeDetector !== 'function') return;
+		if (!('BarcodeDetector' in window)) {
+			showSpiner = false;
+			return;
+		}
+		if (typeof window.BarcodeDetector !== 'function') {
+			showSpiner = false;
+			return;
+		}
 
 		// @ts-ignore
 		const barcodeDetector = new window.BarcodeDetector();
 
-		showSpiner = true;
 		barcodeValues = await barcodeDetector
 			.detect(img)
 			.catch((error: unknown) => {
@@ -76,6 +91,7 @@
 				src={imgUrl}
 				alt="test"
 				bind:this={img}
+				on:loadstart={onStartLoading}
 				on:load={onFinishLoading}
 				on:error={onFinishLoading}
 			/>
