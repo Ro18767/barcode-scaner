@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { clipboard } from '@skeletonlabs/skeleton';
+	import { ProgressRadial, clipboard } from '@skeletonlabs/skeleton';
 	import { FileButton } from '@skeletonlabs/skeleton';
 
 	let img: HTMLImageElement;
@@ -25,6 +25,8 @@
 		}, 1000);
 	}
 
+	let showSpiner = false;
+
 	async function onFinishLoading(event: Event) {
 		barcodeValues = [];
 
@@ -40,6 +42,7 @@
 		// @ts-ignore
 		const barcodeDetector = new window.BarcodeDetector();
 
+		showSpiner = true;
 		barcodeValues = await barcodeDetector
 			.detect(img)
 			.catch((error: unknown) => {
@@ -50,12 +53,16 @@
 			.then((barcodes: { rawValue: string }[]) => {
 				return barcodes.map((barcode) => barcode.rawValue);
 			});
+
+		showSpiner = false;
 	}
 </script>
 
 <div class="container mx-auto p-4 space-y-4">
 	{#if browser && 'BarcodeDetector' in window}
-		<FileButton name="" bind:files accept="image/*" button="btn variant-filled">Select Image</FileButton>
+		<FileButton name="" bind:files accept="image/*" button="btn variant-filled"
+			>Select Image</FileButton
+		>
 	{:else}
 		<h2>BarcodeDetector not supported</h2>
 	{/if}
@@ -73,6 +80,10 @@
 				on:error={onFinishLoading}
 			/>
 		</div>
+	{/if}
+
+	{#if showSpiner}
+		<ProgressRadial stroke={100} meter="stroke-primary-500" track="stroke-primary-500/30" />
 	{/if}
 
 	{#if barcodeValues.length}
