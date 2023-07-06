@@ -8,10 +8,12 @@
 	let file: File;
 	let barcodeValues: string[] = [];
 	let imgUrl: string;
+	let showSpiner = false;
 
 	$: if (files) file = files[0];
 	// $: console.log(file);
 	$: if (file) imgUrl = URL.createObjectURL(file);
+	$: if (imgUrl) showSpiner = true;
 	// $: console.log(barcodeValues);
 
 	let copied = false;
@@ -23,12 +25,6 @@
 		setTimeout(() => {
 			copied = false;
 		}, 1000);
-	}
-
-	let showSpiner = false;
-
-	function onStartLoading() {
-		showSpiner = true;
 	}
 
 	async function onFinishLoading(event: Event) {
@@ -91,7 +87,6 @@
 				src={imgUrl}
 				alt="test"
 				bind:this={img}
-				on:loadstart={onStartLoading}
 				on:load={onFinishLoading}
 				on:error={onFinishLoading}
 			/>
