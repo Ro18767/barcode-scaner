@@ -44,7 +44,7 @@
 			.detect(img)
 			.catch((error: unknown) => {
 				console.error(error);
-				alert((error as Error | null)?.message ?? 'Error not suported barcode fortmat');
+				window.alert((error as Error | null)?.message ?? 'Error not suported barcode fortmat');
 				return [];
 			})
 			.then((barcodes: { rawValue: string }[]) => {
